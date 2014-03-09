@@ -1,0 +1,20 @@
+{
+    "version": "0.1",
+    "name": "Cyber Orb",
+    "description": "Description!",
+    "launch_path": "/index.html",
+    "appcache_path": "/offline.appcache",
+    "icons": {
+        "128": "/icon.png"
+    },
+    "developer": {
+        "name": "Enclave Games",
+        "url": "http://enclavegames.com"
+    },
+    "installs_allowed_from": ["*"],
+    "default_locale": "en",
+    "permissions": {},
+    "fullscreen": "true",
+    "type": "web",
+    "orientation": "portrait"
+}

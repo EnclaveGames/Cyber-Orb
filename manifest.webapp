@@ -1,11 +1,20 @@
 {
-    "version": "0.1",
+    "version": "1.0",
     "name": "Cyber Orb",
     "description": "Description!",
     "launch_path": "/index.html",
     "appcache_path": "/offline.appcache",
     "icons": {
-        "128": "/icon.png"
+        "16": "/icons/icon16.png",
+        "30": "/icons/icon30.png",
+        "32": "/icons/icon32.png",
+        "48": "/icons/icon48.png",
+        "60": "/icons/icon60.png",
+        "64": "/icons/icon64.png",
+        "90": "/icons/icon90.png",
+        "120": "/icons/icon120.png",
+        "128": "/icons/icon128.png",
+        "256": "/icons/icon256.png"
     },
     "developer": {
         "name": "Enclave Games",

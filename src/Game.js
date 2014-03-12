@@ -48,7 +48,6 @@ Ball.Game.prototype = {
 			loop = this.game.time.events.loop(Phaser.Timer.SECOND, this.updateCounter, this);
 			level = 1;
 		}
-		level = 5;
 		this.createLevel(level);
 
 		sfx_bounce = this.game.add.audio('bounce');

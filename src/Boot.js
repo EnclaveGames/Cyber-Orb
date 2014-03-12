@@ -2,7 +2,8 @@ var Ball = {};
 Ball.Boot = function(game) {};
 Ball.Boot.prototype = {
 	preload: function() {
-		this.load.image('preloaderBar', 'img/loading.png');
+		this.load.image('preloaderBg', 'img/loading-bg.png');
+		this.load.image('preloaderBar', 'img/loading-bar.png');
 	},
 	create: function() {
 		this.game.input.maxPointers = 1;

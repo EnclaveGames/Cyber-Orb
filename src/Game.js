@@ -30,12 +30,12 @@ Ball.Game.prototype = {
 		levelText = this.game.add.text(120, 10, "Level: "+level, { font: "16px Arial", fill: "#e4beef" });
 		totalTimeText = this.game.add.text(120, 30, "Total time: "+totalTimer, { font: "16px Arial", fill: "#e4beef" });
 
-		hole = this.add.sprite((320-30)/2, 90, 'hole');
+		hole = this.add.sprite((320)/2, 90, 'hole');
 		hole.body.immovable = true;
 		hole.anchor.setTo(0.5, 0.5);
 		hole.body.setCircle(5,15,15);
 
-		ball = this.add.sprite((320-24)/2, 450, 'ball');
+		ball = this.add.sprite((320)/2, 450, 'ball');
 		ball.anchor.setTo(0.5, 0.5);
 		ball.body.bounce.setTo(0.3, 0.3);
 		ball.body.setCircle(11, 12, 12);
@@ -48,7 +48,7 @@ Ball.Game.prototype = {
 			loop = this.game.time.events.loop(Phaser.Timer.SECOND, this.updateCounter, this);
 			level = 1;
 		}
-
+		level = 5;
 		this.createLevel(level);
 
 		sfx_bounce = this.game.add.audio('bounce');
@@ -58,30 +58,30 @@ Ball.Game.prototype = {
 		// TODO: import from level editor
 		switch(lvl) {
 			case 1: {
-				walls.create((320-131)/2, (480-33)/2, 'element-w').body.immovable = true;
+				walls.create((320-128)/2, (480-32)/2, 'element-w').body.immovable = true;
 				break;
 			}
 			case 2: {
-				walls.create(60, 320, 'element-w').body.immovable = true;
-				walls.create(191, 320, 'element-h').body.immovable = true;
-				walls.create(52, 154, 'element-w').body.immovable = true;
+				walls.create(72, 320, 'element-w').body.immovable = true;
+				walls.create(200, 320, 'element-h').body.immovable = true;
+				walls.create(72, 150, 'element-w').body.immovable = true;
 				break;
 			}
 			case 3: {
-				walls.create(220-34, 480-131, 'element-h').body.immovable = true;
-				walls.create(105-34, 480-131, 'element-h').body.immovable = true;
+				walls.create(64, 480-128, 'element-h').body.immovable = true;
+				walls.create(320-96, 480-128, 'element-h').body.immovable = true;
 				walls.create(0, 240, 'element-w').body.immovable = true;
-				walls.create(131, 240, 'element-w').body.immovable = true;
+				walls.create(128, 240, 'element-w').body.immovable = true;
 				walls.create(200, 52, 'element-h').body.immovable = true;
 				break;
 			}
 			case 4: {
-				walls.create(110-34, 480-131, 'element-h').body.immovable = true;
-				walls.create(110-34, 480-131-32, 'element-w').body.immovable = true;
+				walls.create(110-32, 480-128, 'element-h').body.immovable = true;
+				walls.create(110-32, 480-128-32, 'element-w').body.immovable = true;
 				walls.create(0, 240, 'element-w').body.immovable = true;
-				walls.create(320-131, 240, 'element-w').body.immovable = true;
+				walls.create(320-128, 240, 'element-w').body.immovable = true;
 				walls.create(30, 150, 'element-w').body.immovable = true;
-				walls.create(131+30, 150, 'element-w').body.immovable = true;
+				walls.create(128+30, 150, 'element-w').body.immovable = true;
 				break;
 			}
 			case 5: {
@@ -90,8 +90,8 @@ Ball.Game.prototype = {
 				walls.create(0, 240, 'element-w').body.immovable = true;
 				walls.create(128, 240, 'element-w').body.immovable = true;
 				walls.create(256, 240, 'element-h').body.immovable = true;
-				walls.create(180, 58, 'element-h').body.immovable = true;
-				walls.create(52, 154, 'element-w').body.immovable = true;
+				walls.create(180, 52, 'element-h').body.immovable = true;
+				walls.create(52, 148, 'element-w').body.immovable = true;
 				break;
 			}
 			default: {
@@ -136,11 +136,12 @@ Ball.Game.prototype = {
 	},
 	finishLevel: function() {
 		if(level >= maxLevels) {
-			alert('Congrats, game completed!');
+			totalTimer += timer;
+			alert('Congratulations, game completed!\nTotal time of play: '+totalTimer+' seconds!');
 			this.game.state.start('MainMenu');
 		}
 		else {
-			alert('Congrats, level '+level+' completed!');
+			alert('Congratulations, level '+level+' completed!');
 			totalTimer += timer;
 			timer = 0;
 			level++;

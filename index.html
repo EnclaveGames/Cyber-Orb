@@ -2,14 +2,14 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>Cyber Orb</title>
+	<title>Cyber Orb demo</title>
 	<link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-	<style> body { margin: 0; background: #333; } </style>
-	<script src="src/phaser.min.js"></script>
+	<style> body { margin: 0; background: #2B2E31 url(img/screen-bg.png) repeat; } </style>
+	<script src="src/phaser-arcade-physics.2.2.2.min.js"></script>
 	<script src="src/Boot.js"></script>
 	<script src="src/Preloader.js"></script>
 	<script src="src/MainMenu.js"></script>
-	<script src="src/StoryHowto.js"></script>
+	<script src="src/Howto.js"></script>
 	<script src="src/Game.js"></script>
 </head>
 <body>
@@ -19,7 +19,7 @@
 	game.state.add('Boot', Ball.Boot);
 	game.state.add('Preloader', Ball.Preloader);
 	game.state.add('MainMenu', Ball.MainMenu);
-	game.state.add('StoryHowto', Ball.StoryHowto);
+	game.state.add('Howto', Ball.Howto);
 	game.state.add('Game', Ball.Game);
 	game.state.start('Boot');
 })();

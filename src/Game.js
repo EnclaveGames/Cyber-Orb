@@ -42,7 +42,10 @@ Ball.Game.prototype = {
 		this.initLevels();
 		this.showLevel(1);
 		this.keys = this.game.input.keyboard.createCursorKeys();
+
+		Ball._player = this.ball;
 		window.addEventListener("deviceorientation", this.handleOrientation, true);
+
 		this.time.events.loop(Phaser.Timer.SECOND, this.updateCounter, this);
 
 		this.borderGroup = this.add.group();
@@ -157,11 +160,11 @@ Ball.Game.prototype = {
 	},
 	handleOrientation: function(e) {
 		// Device Orientation API
-		var x = e.gamma; // range [-90,90]
-		var y = e.beta;  // range [-180,180]
-		var z = e.alpha; // not interested
-		this.ball.body.velocity.x += x*0.5;
-		this.ball.body.velocity.y += y;
+		var x = e.gamma; // range [-90,90], left-right
+		var y = e.beta;  // range [-180,180], top-bottom
+		var z = e.alpha; // range [0,360], up-down
+		Ball._player.body.velocity.x += x;
+		Ball._player.body.velocity.y += y*0.5;
 	},
 	finishLevel: function() {
 		if(this.level >= this.maxLevels) {

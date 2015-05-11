@@ -1,4 +1,4 @@
-# Cyber-Orb
+# Cyber Orb
 
 Simple HTML5 mobile demo game built with [Phaser](http://phaser.io/) that uses the **Device Orientation** and **Vibration** APIs.
 
